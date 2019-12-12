@@ -61,7 +61,7 @@ export default function Navbar({ path }) {
         className={classes.navBar}
         style={{
           backgroundColor:
-            y === 0 && path === "/"
+            y === 0 && (path === "/" || !path)
               ? "transparent"
               : theme === "light"
               ? "#212124"
