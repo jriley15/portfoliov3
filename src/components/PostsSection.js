@@ -40,7 +40,8 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: "transparent",
       },
     },
-    borderBottom: "2px solid #f2f2f2",
+    marginTop: theme.spacing(0.5),
+    marginBottom: theme.spacing(0.5),
   },
   previewImageAvatar: {
     //margin: 10,
@@ -51,6 +52,12 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "flex-end",
     overflow: "hidden",
     borderRadius: "3px",
+  },
+  projectContainer: {
+    borderColor:
+      theme.palette.type === "light" ? "#f2f2f2" : "rgba(255, 255, 255, 0.12)",
+    borderStyle: "solid",
+    borderWidth: "0",
   },
 }))
 
@@ -87,56 +94,63 @@ const PostsSection = props => {
 
   return (
     <>
-      {posts.map(post => (
+      {posts.map((post, index) => (
         <VisibilitySensor>
           {({ isVisible }) => (
             <Spring delay={0} to={{ opacity: isVisible ? 1 : 0 }}>
               {({ opacity }) => (
-                <Link
-                  to={"/post/" + post.slug.current}
-                  style={{ color: "inherit", textDecoration: "none" }}
+                <div
+                  className={classes.projectContainer}
+                  style={{
+                    borderBottomWidth: index === posts.length - 1 ? "0" : "2px",
+                  }}
                 >
-                  <div
-                    key={post.id}
-                    style={{ opacity: opacity }}
-                    className={classes.projectButton}
+                  <Link
+                    to={"/post/" + post.slug.current}
+                    style={{ color: "inherit", textDecoration: "none" }}
                   >
-                    <Box
-                      display="flex"
-                      justifyContent="space-between"
-                      alignItems="center"
+                    <div
+                      key={post.id}
+                      style={{ opacity: opacity }}
+                      className={classes.projectButton}
                     >
-                      <div>
-                        <Typography gutterBottom variant="h6">
-                          {post.title}
-                        </Typography>
-                        <Typography
-                          color="textSecondary"
-                          variant="body1"
-                          gutterBottom
-                        >
-                          {post.description}
-                        </Typography>
+                      <Box
+                        display="flex"
+                        justifyContent="space-between"
+                        alignItems="center"
+                      >
+                        <div>
+                          <Typography gutterBottom variant="h6">
+                            {post.title}
+                          </Typography>
+                          <Typography
+                            color="textSecondary"
+                            variant="body1"
+                            gutterBottom
+                          >
+                            {post.description}
+                          </Typography>
 
-                        <Button
-                          variant="outlined"
-                          color="primary"
-                          size="small"
-                          style={{ marginTop: 8 }}
-                        >
-                          Read More
-                        </Button>
-                      </div>
-                      <div className={classes.previewImageAvatar}>
-                        <img
-                          src={post.previewImage}
-                          style={{ height: "100%" }}
-                          alt="preview"
-                        />
-                      </div>
-                    </Box>
-                  </div>
-                </Link>
+                          <Button
+                            variant="outlined"
+                            color="primary"
+                            size="small"
+                            style={{ marginTop: 8 }}
+                          >
+                            Read More
+                          </Button>
+                        </div>
+                        <div className={classes.previewImageAvatar}>
+                          <img
+                            src={post.previewImage}
+                            style={{ height: "100%" }}
+                            alt="preview"
+                          />
+                        </div>
+                      </Box>
+                    </div>
+                  </Link>
+                </div>
               )}
             </Spring>
           )}

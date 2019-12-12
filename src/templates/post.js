@@ -62,7 +62,7 @@ const Post = props => {
 
   return (
     <Layout {...props}>
-      <SEO title="Blog" />
+      <SEO title={post.title} description={post.description} />
       <Box
         justifyContent="center"
         display="flex"

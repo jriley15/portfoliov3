@@ -40,7 +40,7 @@ const IndexPage = props => {
   const classes = useStyles()
   return (
     <Layout {...props}>
-      <SEO title="Blog" />
+      <SEO title="Blog" description="My Personal Blog" />
       <Box
         justifyContent="center"
         display="flex"

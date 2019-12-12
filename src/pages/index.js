@@ -127,7 +127,7 @@ const IndexPage = props => {
 
   return (
     <Layout {...props}>
-      <SEO title="Home" />
+      <SEO title="Home" description="My Portfolio" />
 
       <div className={classes.relative}>
         <div className={classes.landingBackGround}>
