@@ -79,7 +79,7 @@ export default function Navbar({ path }) {
           <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
             <Box display="flex" alignItems="center">
               <Typography variant="h6" className={classes.title}>
-                🎅 Jordan Riley
+                🎅 Jordan Riley {path}
               </Typography>
             </Box>
           </Link>
