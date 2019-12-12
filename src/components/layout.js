@@ -2,6 +2,7 @@ import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import { Box } from "@material-ui/core"
 import Navbar from "./Navbar"
+import Footer from "./Footer"
 
 const useStyles = makeStyles(theme => ({
   nav: {
@@ -10,14 +11,7 @@ const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
   },
-  flexContainer: {
-    marginTop: theme.spacing(8),
-  },
-  bodyContainer: {
-    maxWidth: 800,
-    padding: theme.spacing(2),
 
-  },
   navButton: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
@@ -33,19 +27,13 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const Layout = ({ children }) => {
+const Layout = ({ children, path }) => {
   const classes = useStyles()
-
   return (
     <>
-      <Navbar />
-      <Box
-        justifyContent="center"
-        display="flex"
-        className={classes.flexContainer}
-      >
-        <div className={classes.bodyContainer}>{children}</div>
-      </Box>
+      <Navbar path={path} />
+      {children}
+      <Footer />
     </>
   )
 }

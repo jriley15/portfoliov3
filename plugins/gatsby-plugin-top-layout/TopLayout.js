@@ -1,10 +1,27 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 import CssBaseline from "@material-ui/core/CssBaseline"
-import { ThemeProvider } from "@material-ui/styles"
-import theme from "../../src/theme"
+import { StateProvider } from "../../src/state"
+import CustomThemeProvider from "../../src/theme"
 
 export default function TopLayout(props) {
+  const initialState = {
+    theme: "light",
+  }
+
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case "changeTheme":
+        return {
+          ...state,
+          theme: action.newTheme,
+        }
+
+      default:
+        return state
+    }
+  }
+
   return (
     <React.Fragment>
       <Helmet>
@@ -17,12 +34,14 @@ export default function TopLayout(props) {
           rel="stylesheet"
         />*/}
       </Helmet>
+      <StateProvider initialState={initialState} reducer={reducer}>
+        <CustomThemeProvider>
+          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+          <CssBaseline />
 
-      <ThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
-        {props.children}
-      </ThemeProvider>
+          {props.children}
+        </CustomThemeProvider>
+      </StateProvider>
     </React.Fragment>
   )
 }

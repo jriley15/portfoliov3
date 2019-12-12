@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Typography, Box, Avatar, Button } from "@material-ui/core"
@@ -9,6 +9,9 @@ import { makeStyles } from "@material-ui/core/styles"
 import Heading2 from "../components/common/Heading2"
 import MailIcon from "@material-ui/icons/Mail"
 import PostsSection from "../components/PostsSection"
+import BlockContent from "@sanity/block-content-to-react"
+import serializers from "../components/common/serializers"
+import Carousel from "../components/gallery/Carousel"
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -24,7 +27,8 @@ const useStyles = makeStyles(theme => ({
   },
 
   contentContainer: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(4),
+    wordBreak: "break-word",
   },
   flexContainer: {
     paddingTop: theme.spacing(8),
@@ -36,8 +40,26 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const IndexPage = props => {
+export const query = graphql`
+  query PostTemplateQuery($id: String!) {
+    post: sanityPost(id: { eq: $id }) {
+      id
+      _rawBody
+      title
+      description
+      previewImage
+      publishedAt
+      _createdAt
+    }
+  }
+`
+
+const Post = props => {
   const classes = useStyles()
+
+  const { data, errors } = props
+  const post = data && data.post
+
   return (
     <Layout {...props}>
       <SEO title="Blog" />
@@ -48,10 +70,19 @@ const IndexPage = props => {
       >
         <div className={classes.bodyContainer}>
           <div className={classes.topContainer}>
-            <div>
-              <Heading2>Blog</Heading2>
-              <PostsSection />
-            </div>
+            <Box display="flex" justifyContent="center" flexDirection="column">
+              <Heading2>{post.title}</Heading2>
+              <Typography variant="body2">
+                {new Date(post._createdAt).toDateString()}
+              </Typography>
+
+              <div className={classes.contentContainer}>
+                <BlockContent
+                  blocks={post._rawBody}
+                  serializers={serializers}
+                />
+              </div>
+            </Box>
           </div>
         </div>
       </Box>
@@ -59,4 +90,4 @@ const IndexPage = props => {
   )
 }
 
-export default IndexPage
+export default Post

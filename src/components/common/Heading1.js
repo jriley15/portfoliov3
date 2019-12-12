@@ -3,7 +3,11 @@ import { Typography } from "@material-ui/core"
 
 export default function Heading1({ children }) {
   return (
-    <Typography variant="h3" gutterBottom style={{ fontWeight: 600 }}>
+    <Typography
+      variant="h3"
+      gutterBottom
+      style={{ fontWeight: 600, color: "#FFF" }}
+    >
       {children}
     </Typography>
   )

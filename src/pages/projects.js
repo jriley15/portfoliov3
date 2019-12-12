@@ -1,14 +1,24 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Typography, Box, Avatar, Button } from "@material-ui/core"
+import {
+  Typography,
+  Box,
+  Avatar,
+  Button,
+  ButtonGroup,
+  fade,
+} from "@material-ui/core"
 import Heading1 from "../components/common/Heading1"
 import Paper from "@material-ui/core/Paper"
 import { makeStyles } from "@material-ui/core/styles"
 import Heading2 from "../components/common/Heading2"
 import MailIcon from "@material-ui/icons/Mail"
-import PostsSection from "../components/PostsSection"
+import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from "../lib/helpers"
+import { Spring } from "react-spring/renderprops"
+import VisibilitySensor from "react-visibility-sensor"
+import ProjectsSection from "../components/ProjectsSection"
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -36,11 +46,12 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const IndexPage = props => {
+const Projects = props => {
   const classes = useStyles()
+
   return (
     <Layout {...props}>
-      <SEO title="Blog" />
+      <SEO title="Projects" />
       <Box
         justifyContent="center"
         display="flex"
@@ -49,8 +60,8 @@ const IndexPage = props => {
         <div className={classes.bodyContainer}>
           <div className={classes.topContainer}>
             <div>
-              <Heading2>Blog</Heading2>
-              <PostsSection />
+              <Heading2>Projects</Heading2>
+              <ProjectsSection />
             </div>
           </div>
         </div>
@@ -59,4 +70,4 @@ const IndexPage = props => {
   )
 }
 
-export default IndexPage
+export default Projects
