@@ -61,7 +61,7 @@ export default function Navbar({ path }) {
         className={classes.navBar}
         style={{
           backgroundColor:
-            y === 0 && (path === "/" || !path)
+            y === 0 && (path === "/" || path === "/*")
               ? "transparent"
               : theme === "light"
               ? "#212124"
@@ -79,7 +79,7 @@ export default function Navbar({ path }) {
           <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
             <Box display="flex" alignItems="center">
               <Typography variant="h6" className={classes.title}>
-                🎅 Jordan Riley {path} : {y}
+                🎅 Jordan Riley
               </Typography>
             </Box>
           </Link>
