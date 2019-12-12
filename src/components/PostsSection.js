@@ -95,7 +95,7 @@ const PostsSection = props => {
   return (
     <>
       {posts.map((post, index) => (
-        <VisibilitySensor>
+        <VisibilitySensor key={post.id}>
           {({ isVisible }) => (
             <Spring delay={0} to={{ opacity: isVisible ? 1 : 0 }}>
               {({ opacity }) => (
@@ -110,7 +110,6 @@ const PostsSection = props => {
                     style={{ color: "inherit", textDecoration: "none" }}
                   >
                     <div
-                      key={post.id}
                       style={{ opacity: opacity }}
                       className={classes.projectButton}
                     >
