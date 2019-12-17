@@ -78,7 +78,7 @@ async function createProjectPages(graphql, actions, reporter) {
 }
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
-  await createBlogPostPages(graphql, actions, reporter)
+  //await createBlogPostPages(graphql, actions, reporter)
   await createProjectPages(graphql, actions, reporter)
   /*actions.createPage({
       path: "/projects",
@@ -87,7 +87,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })*/
 
   const { createPage } = actions
-  const blogPostTemplate = path.resolve(`src/templates/markdownpost.js`)
+  const blogPostTemplate = path.resolve(`src/templates/post.js`)
   const result = await graphql(`
     {
       allMarkdownRemark(
