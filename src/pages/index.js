@@ -120,6 +120,9 @@ const useStyles = makeStyles(theme => ({
   relative: {
     position: "relative",
   },
+  button: {
+    marginLeft: theme.spacing(1),
+  },
 }))
 
 const IndexPage = props => {
@@ -168,6 +171,7 @@ const IndexPage = props => {
                   />
                 </Button>
               </div>
+
               <div className={classes.margin}>
                 <Paper className={classes.paper}>
                   <Box
@@ -199,14 +203,25 @@ const IndexPage = props => {
                     </Box>
                     <div style={{ marginTop: 16 }}>
                       <ButtonGroup aria-label="large contained secondary button group">
-                        <Button variant="contained" color="primary">
+                        <Button
+                          variant="contained"
+                          color="primary"
+                          component="a"
+                          href="https://www.linkedin.com/in/jordan-riley-090564158/"
+                          target="_blank"
+                        >
                           <img
                             src="https://www.pinclipart.com/picdir/big/100-1003028_svg-linkedin-icon-vector-clipart.png"
                             className={classes.linkedInIcon}
                           />
                           LinkedIn
                         </Button>
-                        <Button variant="contained">
+                        <Button
+                          variant="contained"
+                          component="a"
+                          href="https://www.youtube.com/channel/UCm1QwbkF44UTDhAHzqBYNWA"
+                          target="_blank"
+                        >
                           <img
                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/YouTube_play_buttom_icon_%282013-2017%29.svg/768px-YouTube_play_buttom_icon_%282013-2017%29.svg.png"
                             className={classes.linkedInIcon}

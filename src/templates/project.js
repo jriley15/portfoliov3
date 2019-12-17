@@ -38,6 +38,10 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 800,
     padding: theme.spacing(2),
   },
+  btn: {
+    marginLeft: theme.spacing(0.5),
+    marginRight: theme.spacing(0.5),
+  },
 }))
 
 export const query = graphql`
@@ -85,6 +89,26 @@ const Project = props => {
               </Typography>
               <div className={classes.contentContainer}>
                 <Carousel images={project.images} />
+              </div>
+              <div>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  className={classes.btn}
+                  component="a"
+                  href={project.demo}
+                  target="__blank"
+                >
+                  Live Demo
+                </Button>
+                <Button variant="contained" className={classes.btn}>
+                  <img
+                    src="https://images.jrdn.tech/github.svg"
+                    style={{ width: 16, marginRight: 4 }}
+                    alt="github"
+                  />
+                  Repository
+                </Button>
               </div>
               <div className={classes.contentContainer}>
                 <BlockContent

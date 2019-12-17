@@ -30,7 +30,7 @@ export default function Footer() {
           <Typography>Footer Left</Typography>
         </div>
         <div>
-          <Typography>Footer Right</Typography>
+          <Typography>© 2019 Jordan Riley</Typography>
         </div>
       </Box>
     </Box>

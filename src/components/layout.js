@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import { Box } from "@material-ui/core"
 import Navbar from "./Navbar"
 import Footer from "./Footer"
+import ReactGA from "react-ga"
 
 const useStyles = makeStyles(theme => ({
   nav: {
@@ -29,6 +30,15 @@ const useStyles = makeStyles(theme => ({
 
 const Layout = ({ children, path }) => {
   const classes = useStyles()
+
+  useEffect(() => {
+    //Google analytics scripts
+    ReactGA.initialize("UA-145349824-1")
+
+    ReactGA.pageview(window.location.pathname)
+    return () => {}
+  }, [])
+
   return (
     <>
       <Navbar path={path} />
