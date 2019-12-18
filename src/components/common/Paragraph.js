@@ -4,7 +4,9 @@ import { Typography } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
   root: {
-    marginBottom: theme.spacing(4),
+    marginBlockStart: "1em",
+    marginBlockEnd: "1em",
+    margin: "0 0 2rem",
   },
 }))
 

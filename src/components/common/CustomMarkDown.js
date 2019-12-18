@@ -4,6 +4,8 @@ import { Typography } from "@material-ui/core"
 import { H1, H2, H3, H4, H5, H6 } from "./Headers"
 import BlockQuote from "./BlockQuote"
 import Paragraph from "./Paragraph"
+import ListItem from "./ListItem"
+import Image from "./Image"
 
 const htmlAst = new RehypeReact({
   createElement: React.createElement,
@@ -15,6 +17,8 @@ const htmlAst = new RehypeReact({
     h5: H5,
     p: Paragraph,
     blockquote: BlockQuote,
+    li: ListItem,
+    img: Image,
   },
 }).Compiler
 

@@ -65,21 +65,19 @@ const PostsSection = props => {
   const classes = useStyles()
 
   const data = useStaticQuery(graphql`
-    query IndexPageQuery {
-      posts: allSanityPost(
-        limit: 5
-        sort: { fields: [publishedAt], order: DESC }
+    {
+      allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] }
+        limit: 1000
       ) {
         edges {
           node {
-            _rawBody
-            id
-            title
-            description
-            previewImage
-            publishedAt
-            slug {
-              current
+            frontmatter {
+              date(formatString: "MMMM DD, YYYY")
+              path
+              title
+              description
+              previewImage
             }
           }
         }
@@ -87,15 +85,12 @@ const PostsSection = props => {
     }
   `)
 
-  const posts =
-    data &&
-    data.posts &&
-    mapEdgesToNodes(data.posts).filter(filterOutDocsWithoutSlugs)
+  const posts = data.allMarkdownRemark.edges
 
   return (
     <>
-      {posts.map((post, index) => (
-        <VisibilitySensor key={post.id}>
+      {posts.map(({ node }, index) => (
+        <VisibilitySensor index>
           {({ isVisible }) => (
             <Spring delay={0} to={{ opacity: isVisible ? 1 : 0 }}>
               {({ opacity }) => (
@@ -106,7 +101,7 @@ const PostsSection = props => {
                   }}
                 >
                   <Link
-                    to={"/post/" + post.slug.current}
+                    to={node.frontmatter.path}
                     style={{ color: "inherit", textDecoration: "none" }}
                   >
                     <div
@@ -120,14 +115,14 @@ const PostsSection = props => {
                       >
                         <div>
                           <Typography gutterBottom variant="h6">
-                            {post.title}
+                            {node.frontmatter.title}
                           </Typography>
                           <Typography
                             color="textSecondary"
                             variant="body1"
                             gutterBottom
                           >
-                            {post.description}
+                            {node.frontmatter.description}
                           </Typography>
 
                           <Button
@@ -141,7 +136,7 @@ const PostsSection = props => {
                         </div>
                         <div className={classes.previewImageAvatar}>
                           <img
-                            src={post.previewImage}
+                            src={node.frontmatter.previewImage}
                             style={{ height: "100%" }}
                             alt="preview"
                           />

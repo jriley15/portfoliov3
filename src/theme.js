@@ -1,10 +1,10 @@
 import React, { useEffect } from "react"
-import { createMuiTheme } from "@material-ui/core/styles"
+import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles"
 import { useStateValue } from "./state"
 import { ThemeProvider } from "@material-ui/styles"
 
 // A custom theme for this app
-const lightTheme = createMuiTheme({
+let lightTheme = createMuiTheme({
   typography: {
     fontFamily: [
       '"Segoe UI"',
@@ -29,7 +29,7 @@ const lightTheme = createMuiTheme({
     },
   },
 })
-const darkTheme = createMuiTheme({
+let darkTheme = createMuiTheme({
   typography: {
     fontFamily: [
       '"Segoe UI"',
@@ -54,6 +54,9 @@ const darkTheme = createMuiTheme({
     },
   },
 })
+
+lightTheme = responsiveFontSizes(lightTheme)
+darkTheme = responsiveFontSizes(darkTheme)
 
 const CustomThemeProvider = ({ children }) => {
   const [{ theme }, dispatch] = useStateValue()

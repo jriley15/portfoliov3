@@ -108,6 +108,7 @@ import BlockContent from "@sanity/block-content-to-react"
 import serializers from "../components/common/serializers"
 import Carousel from "../components/gallery/Carousel"
 import CustomMarkDown from "../components/common/CustomMarkDown"
+import { H4, H3 } from "../components/common/Headers"
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -168,7 +169,7 @@ const Post = props => {
         <div className={classes.bodyContainer}>
           <div className={classes.topContainer}>
             <Box display="flex" justifyContent="center" flexDirection="column">
-              <Heading2>{frontmatter.title}</Heading2>
+              <H3>{frontmatter.title}</H3>
               <Typography variant="body2">
                 {new Date(frontmatter.date).toDateString()}
               </Typography>
