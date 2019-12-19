@@ -94,7 +94,7 @@ const ProjectsSection = props => {
   return (
     <>
       {projects.map(({ node: { frontmatter: project } }, index) => (
-        <VisibilitySensor key={project.id}>
+        <VisibilitySensor key={index}>
           {({ isVisible }) => (
             <Spring delay={0} to={{ opacity: isVisible ? 1 : 0 }}>
               {({ opacity }) => (

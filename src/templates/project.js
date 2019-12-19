@@ -9,7 +9,6 @@ import { makeStyles } from "@material-ui/core/styles"
 import Heading2 from "../components/common/Heading2"
 import MailIcon from "@material-ui/icons/Mail"
 import PostsSection from "../components/PostsSection"
-import BlockContent from "@sanity/block-content-to-react"
 import serializers from "../components/common/serializers"
 import Carousel from "../components/gallery/Carousel"
 import CustomMarkDown from "../components/common/CustomMarkDown"
@@ -109,7 +108,13 @@ const Project = props => {
                 >
                   Live Demo
                 </Button>
-                <Button variant="contained" className={classes.btn}>
+                <Button
+                  variant="contained"
+                  className={classes.btn}
+                  component="a"
+                  href={project.github}
+                  target="__blank"
+                >
                   <img
                     src="https://images.jrdn.tech/github.svg"
                     style={{ width: 16, marginRight: 4 }}

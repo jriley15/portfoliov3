@@ -12,6 +12,7 @@ async function createBlogPostPages(graphql, actions, reporter) {
     {
       allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] }
+        filter: { fileAbsolutePath: { regex: "/(posts)/.*\\\\.md$/" } }
         limit: 1000
       ) {
         edges {
@@ -35,49 +36,18 @@ async function createBlogPostPages(graphql, actions, reporter) {
       component: blogPostTemplate,
       context: {}, // additional data can be passed via context
     })
+    console.log("Creating page: " + node.frontmatter.path)
   })
 }
 
 async function createProjectPages(graphql, actions, reporter) {
-  /*const { createPage } = actions
-  const result = await graphql(`
-    {
-      allSanityProject(filter: { slug: { current: { ne: null } } }) {
-        edges {
-          node {
-            id
-            slug {
-              current
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  if (result.errors) throw result.errors
-
-  const projectEdges = (result.data.allSanityProject || {}).edges || []
-
-  projectEdges.forEach(edge => {
-    const id = edge.node.id
-    const slug = edge.node.slug.current
-    const path = `/project/${slug}/`
-
-    reporter.info(`Creating project page: ${path}`)
-
-    createPage({
-      path,
-      component: require.resolve("./src/templates/project.js"),
-      context: { id },
-    })
-  })*/
   const { createPage } = actions
   const projectTemplate = path.resolve(`src/templates/project.js`)
   const result = await graphql(`
     {
       allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] }
+        filter: { fileAbsolutePath: { regex: "/(projects)/.*\\\\.md$/" } }
         limit: 1000
       ) {
         edges {
@@ -101,6 +71,8 @@ async function createProjectPages(graphql, actions, reporter) {
       component: projectTemplate,
       context: {}, // additional data can be passed via context
     })
+
+    console.log("Creating page: " + node.frontmatter.path)
   })
 }
 
