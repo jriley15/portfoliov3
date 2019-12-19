@@ -41,11 +41,11 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function Navbar(props) {
+export default function Navbar({ path }) {
   const classes = useStyles()
   const y = useScrollPosition()
   const [{ theme }, dispatch] = useStateValue()
-  const { path } = props
+
   const handleThemeChange = () => {
     localStorage.setItem("theme", theme === "light" ? "dark" : "light")
     dispatch({
@@ -53,7 +53,7 @@ export default function Navbar(props) {
       newTheme: theme === "light" ? "dark" : "light",
     })
   }
-  console.log("props: ", props)
+
   return (
     <div className={classes.nav}>
       <AppBar
@@ -61,7 +61,7 @@ export default function Navbar(props) {
         className={classes.navBar}
         style={{
           backgroundColor:
-            y === 0 && (path === "/" || path === "/*")
+            y === 0 && path === "/"
               ? "transparent"
               : theme === "light"
               ? "#212124"
@@ -79,7 +79,7 @@ export default function Navbar(props) {
           <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
             <Box display="flex" alignItems="center">
               <Typography variant="h6" className={classes.title}>
-                🎅 Jordan Riley {path}
+                🎅 Jordan Riley
               </Typography>
             </Box>
           </Link>
