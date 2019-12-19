@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import useScrollPosition from "../hooks/useScrollPosition"
 import { makeStyles } from "@material-ui/core/styles"
 import AppBar from "@material-ui/core/AppBar"
@@ -71,7 +71,7 @@ export default function Navbar({ path }) {
         position="fixed"
         className={classes.navBar}
         style={{
-          backgroundColor: backcolor,
+          backgroundColor: backColor,
           boxShadow:
             y === 0
               ? "none"
