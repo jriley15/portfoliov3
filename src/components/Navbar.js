@@ -41,11 +41,11 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function Navbar({ path }) {
+export default function Navbar(props) {
   const classes = useStyles()
   const y = useScrollPosition()
   const [{ theme }, dispatch] = useStateValue()
-
+  const { path } = props
   const handleThemeChange = () => {
     localStorage.setItem("theme", theme === "light" ? "dark" : "light")
     dispatch({
@@ -53,7 +53,7 @@ export default function Navbar({ path }) {
       newTheme: theme === "light" ? "dark" : "light",
     })
   }
-
+  console.log("props: ", props)
   return (
     <div className={classes.nav}>
       <AppBar
