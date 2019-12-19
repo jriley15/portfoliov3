@@ -45,6 +45,7 @@ export default function Navbar({ path }) {
   const classes = useStyles()
   const y = useScrollPosition()
   const [{ theme }, dispatch] = useStateValue()
+  const [backColor, setBackColor] = useState("transparent")
 
   const handleThemeChange = () => {
     localStorage.setItem("theme", theme === "light" ? "dark" : "light")
@@ -54,27 +55,23 @@ export default function Navbar({ path }) {
     })
   }
 
-  console.log("rendering: " + y + ", " + path)
-  console.log(
-    "backgroundColor: ",
-    y === 0 && path === "/"
-      ? "transparent"
-      : theme === "light"
-      ? "#212124"
-      : "#555abf"
-  )
+  useEffect(() => {
+    setBackColor(
+      y === 0 && path === "/"
+        ? "transparent"
+        : theme === "light"
+        ? "#212124"
+        : "#555abf"
+    )
+  }, [y, path, theme])
+
   return (
     <div className={classes.nav}>
       <AppBar
         position="fixed"
         className={classes.navBar}
         style={{
-          backgroundColor:
-            y === 0 && path === "/"
-              ? "transparent"
-              : theme === "light"
-              ? "#212124"
-              : "#555abf",
+          backgroundColor: backcolor,
           boxShadow:
             y === 0
               ? "none"
