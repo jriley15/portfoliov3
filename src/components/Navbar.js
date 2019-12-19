@@ -45,7 +45,13 @@ export default function Navbar({ path }) {
   const classes = useStyles()
   const y = useScrollPosition()
   const [{ theme }, dispatch] = useStateValue()
-  const [backColor, setBackColor] = useState("transparent")
+  const [backColor, setBackColor] = useState(
+    y === 0 && path === "/"
+      ? "transparent"
+      : theme === "light"
+      ? "#212124"
+      : "#555abf"
+  )
 
   const handleThemeChange = () => {
     localStorage.setItem("theme", theme === "light" ? "dark" : "light")
