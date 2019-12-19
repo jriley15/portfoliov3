@@ -54,6 +54,7 @@ export default function Navbar({ path }) {
     })
   }
 
+  console.log("rendering: " + y + ", " + path)
   return (
     <div className={classes.nav}>
       <AppBar
@@ -79,7 +80,7 @@ export default function Navbar({ path }) {
           <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
             <Box display="flex" alignItems="center">
               <Typography variant="h6" className={classes.title}>
-                🎅 Jordan Riley : {y} : {path}
+                🎅 Jordan Riley
               </Typography>
             </Box>
           </Link>
