@@ -69,6 +69,7 @@ export default function Navbar({ path }) {
         ? "#212124"
         : "#555abf"
     )
+    console.log("setting: " + y + ", " + path + " , " + theme)
   }, [y, path, theme])
 
   return (
