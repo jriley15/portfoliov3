@@ -69,9 +69,10 @@ export default function Navbar({ path }) {
         ? "#212124"
         : "#555abf"
     )
-    console.log("setting: " + y + ", " + path + " , " + theme)
+    console.log("useEffect: " + y + ", " + path + " , " + theme)
   }, [y, path, theme])
 
+  console.log("rendering: " + y + ", " + path + " , " + theme)
   return (
     <div className={classes.nav}>
       <AppBar
