@@ -13,9 +13,6 @@ import {
 import Heading1 from "../components/common/Heading1"
 import Paper from "@material-ui/core/Paper"
 import { makeStyles } from "@material-ui/core/styles"
-import Heading2 from "../components/common/Heading2"
-import MailIcon from "@material-ui/icons/Mail"
-import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from "../lib/helpers"
 import { Spring } from "react-spring/renderprops"
 import VisibilitySensor from "react-visibility-sensor"
 
@@ -68,6 +65,7 @@ const PostsSection = props => {
     {
       allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] }
+        filter: { fileAbsolutePath: { regex: "/(posts)/.*\\\\.md$/" } }
         limit: 1000
       ) {
         edges {
@@ -89,8 +87,8 @@ const PostsSection = props => {
 
   return (
     <>
-      {posts.map(({ node }, index) => (
-        <VisibilitySensor index>
+      {posts.map(({ node: { frontmatter: post } }, index) => (
+        <VisibilitySensor key={index}>
           {({ isVisible }) => (
             <Spring delay={0} to={{ opacity: isVisible ? 1 : 0 }}>
               {({ opacity }) => (
@@ -101,7 +99,7 @@ const PostsSection = props => {
                   }}
                 >
                   <Link
-                    to={node.frontmatter.path}
+                    to={post.path}
                     style={{ color: "inherit", textDecoration: "none" }}
                   >
                     <div
@@ -115,14 +113,14 @@ const PostsSection = props => {
                       >
                         <div>
                           <Typography gutterBottom variant="h6">
-                            {node.frontmatter.title}
+                            {post.title}
                           </Typography>
                           <Typography
                             color="textSecondary"
                             variant="body1"
                             gutterBottom
                           >
-                            {node.frontmatter.description}
+                            {post.description}
                           </Typography>
 
                           <Button
@@ -136,7 +134,7 @@ const PostsSection = props => {
                         </div>
                         <div className={classes.previewImageAvatar}>
                           <img
-                            src={node.frontmatter.previewImage}
+                            src={post.previewImage}
                             style={{ height: "100%" }}
                             alt="preview"
                           />

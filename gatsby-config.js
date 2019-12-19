@@ -16,7 +16,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
-    {
+    /*{
       resolve: "gatsby-source-sanity",
       options: {
         projectId: "3589as9m",
@@ -27,7 +27,7 @@ module.exports = {
         //watchMode: true,
         //overlayDrafts: true
       },
-    },
+    },*/
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -45,8 +45,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `markdown-posts`,
+        name: `posts`,
         path: `${__dirname}/src/posts`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `projects`,
+        path: `${__dirname}/src/projects`,
       },
     },
     `gatsby-transformer-remark`,

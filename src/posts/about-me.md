@@ -1,6 +1,6 @@
 ---
 path: "/post/about-me"
-date: "2019-06-18"
+date: "2019-08-18"
 title: "About Me"
 description: "A brief introduction to my life and how I got started with software development."
 previewImage: "https://images.jrdn.tech/me.jpg"

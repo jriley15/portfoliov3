@@ -1,6 +1,6 @@
 ---
 path: "/post/portfolio-v2"
-date: "2019-06-18"
+date: "2019-08-20"
 title: "Portfolio v2"
 description: "In-depth reflection of the technical decisions and design of my second portfolio project featuring some of the latest front-end technology."
 previewImage: "https://images.jrdn.tech/p2.JPG"

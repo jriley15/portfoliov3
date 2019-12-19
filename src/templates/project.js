@@ -12,6 +12,8 @@ import PostsSection from "../components/PostsSection"
 import BlockContent from "@sanity/block-content-to-react"
 import serializers from "../components/common/serializers"
 import Carousel from "../components/gallery/Carousel"
+import CustomMarkDown from "../components/common/CustomMarkDown"
+import { H4, H3 } from "../components/common/Headers"
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -29,9 +31,11 @@ const useStyles = makeStyles(theme => ({
   contentContainer: {
     marginTop: theme.spacing(4),
     wordBreak: "break-word",
+    width: "100%",
   },
   flexContainer: {
     paddingTop: theme.spacing(8),
+    width: "100%",
   },
   bodyContainer: {
     width: "100%",
@@ -45,17 +49,18 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export const query = graphql`
-  query ProjectTemplateQuery($id: String!) {
-    project: sanityProject(id: { eq: $id }) {
-      id
-      title
-      description
-      demo
-      images
-      repository
-      _rawBody
-      slug {
-        current
+  query($path: String!) {
+    markdownRemark(frontmatter: { path: { eq: $path } }) {
+      htmlAst
+      frontmatter {
+        date(formatString: "MMMM DD, YYYY")
+        path
+        title
+        description
+        emoji
+        github
+        demo
+        images
       }
     }
   }
@@ -64,8 +69,10 @@ export const query = graphql`
 const Project = props => {
   const classes = useStyles()
 
-  const { data, errors } = props
-  const project = data && data.project
+  const { markdownRemark } = props.data
+  const { frontmatter: project } = markdownRemark
+
+  console.log("project:", project)
 
   return (
     <Layout {...props}>
@@ -82,8 +89,9 @@ const Project = props => {
               justifyContent="center"
               flexDirection="column"
               alignItems="center"
+              style={{ width: "100%" }}
             >
-              <Heading2>{project.title}</Heading2>
+              <H3>{project.title}</H3>
               <Typography color="textSecondary">
                 {project.description}
               </Typography>
@@ -111,10 +119,7 @@ const Project = props => {
                 </Button>
               </div>
               <div className={classes.contentContainer}>
-                <BlockContent
-                  blocks={project._rawBody}
-                  serializers={serializers}
-                />
+                <CustomMarkDown markdownRemark={markdownRemark} />
               </div>
             </Box>
           </div>

@@ -40,9 +40,9 @@ const useStyles = makeStyles(theme => ({
     paddingTop: theme.spacing(8),
   },
   bodyContainer: {
-    width: "100%",
     maxWidth: 800,
     padding: theme.spacing(2),
+    width: "100%",
   },
 }))
 
@@ -59,7 +59,7 @@ const Projects = props => {
       >
         <div className={classes.bodyContainer}>
           <div className={classes.topContainer}>
-            <div>
+            <div style={{ width: "100%" }}>
               <Heading2>Projects</Heading2>
               <ProjectsSection />
             </div>

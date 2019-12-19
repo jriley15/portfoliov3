@@ -65,19 +65,23 @@ const ProjectsSection = props => {
   const classes = useStyles()
 
   const data = useStaticQuery(graphql`
-    query ProjectsPageQuery {
-      projects: allSanityProject(sort: { fields: [publishedAt], order: DESC }) {
+    {
+      allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] }
+        filter: { fileAbsolutePath: { regex: "/(projects)/.*\\\\.md$/" } }
+        limit: 1000
+      ) {
         edges {
           node {
-            id
-            title
-            emoji
-            description
-            demo
-            images
-            repository
-            slug {
-              current
+            frontmatter {
+              date(formatString: "MMMM DD, YYYY")
+              path
+              title
+              description
+              emoji
+              github
+              demo
+              images
             }
           }
         }
@@ -85,14 +89,11 @@ const ProjectsSection = props => {
     }
   `)
 
-  const projects =
-    data &&
-    data.projects &&
-    mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
+  const projects = data.allMarkdownRemark.edges
 
   return (
     <>
-      {projects.map((project, index) => (
+      {projects.map(({ node: { frontmatter: project } }, index) => (
         <VisibilitySensor key={project.id}>
           {({ isVisible }) => (
             <Spring delay={0} to={{ opacity: isVisible ? 1 : 0 }}>
@@ -106,7 +107,7 @@ const ProjectsSection = props => {
                 >
                   <Link
                     style={{ textDecoration: "none", color: "inherit" }}
-                    to={"/project/" + project.slug.current}
+                    to={project.path}
                   >
                     <div
                       key={project.id}

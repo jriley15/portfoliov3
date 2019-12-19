@@ -1,6 +1,6 @@
 ---
 path: "/post/portfolio-v1"
-date: "2019-06-18"
+date: "2019-08-19"
 title: "Portfolio v1"
 description: "A reflection on the technical decisions and various things I learned from creating my first professional portfolio."
 previewImage: "https://images.jrdn.tech/p1.JPG"

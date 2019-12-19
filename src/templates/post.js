@@ -155,7 +155,7 @@ const Post = props => {
   const classes = useStyles()
 
   const { markdownRemark } = props.data
-  const { frontmatter, html, htmlAst } = markdownRemark
+  const { frontmatter } = markdownRemark
   //const post = data && data.post
 
   return (
