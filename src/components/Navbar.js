@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import useScrollPosition from "../hooks/useScrollPosition"
 import { makeStyles } from "@material-ui/core/styles"
 import AppBar from "@material-ui/core/AppBar"
@@ -45,13 +45,6 @@ export default function Navbar({ path }) {
   const classes = useStyles()
   const y = useScrollPosition()
   const [{ theme }, dispatch] = useStateValue()
-  const [backColor, setBackColor] = useState(
-    y === 0 && path === "/"
-      ? "transparent"
-      : theme === "light"
-      ? "#212124"
-      : "#555abf"
-  )
 
   const handleThemeChange = () => {
     localStorage.setItem("theme", theme === "light" ? "dark" : "light")
@@ -61,25 +54,18 @@ export default function Navbar({ path }) {
     })
   }
 
-  useEffect(() => {
-    setBackColor(
-      y == 0 && path == "/"
-        ? "transparent"
-        : theme === "light"
-        ? "#212124"
-        : "#555abf"
-    )
-    console.log("useEffect: " + y + ", " + path + " , " + theme)
-  }, [y, path, theme])
-
-  console.log("rendering: " + y + ", " + path + " , " + theme)
   return (
     <div className={classes.nav}>
       <AppBar
         position="fixed"
         className={classes.navBar}
         style={{
-          backgroundColor: backColor,
+          backgroundColor:
+            y === 0 && path === "/"
+              ? "transparent"
+              : theme === "light"
+              ? "#212124"
+              : "#555abf",
           boxShadow:
             y === 0
               ? "none"
