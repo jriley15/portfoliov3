@@ -55,6 +55,14 @@ export default function Navbar({ path }) {
   }
 
   console.log("rendering: " + y + ", " + path)
+  console.log(
+    "backgroundColor: ",
+    y === 0 && path === "/"
+      ? "transparent"
+      : theme === "light"
+      ? "#212124"
+      : "#555abf"
+  )
   return (
     <div className={classes.nav}>
       <AppBar
