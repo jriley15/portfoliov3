@@ -63,7 +63,7 @@ export default function Navbar({ path }) {
 
   useEffect(() => {
     setBackColor(
-      y === 0 && path === "/"
+      y == 0 && path == "/"
         ? "transparent"
         : theme === "light"
         ? "#212124"
