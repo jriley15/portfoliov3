@@ -129,7 +129,7 @@ const IndexPage = props => {
   const classes = useStyles()
 
   return (
-    <Layout {...props}>
+    <Layout {...props} index={true}>
       <SEO title="Home" description="My Portfolio" />
 
       <div className={classes.relative}>

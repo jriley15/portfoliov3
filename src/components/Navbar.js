@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function Navbar({ path }) {
+export default function Navbar({ path, index }) {
   const classes = useStyles()
   const y = useScrollPosition()
   const [{ theme }, dispatch] = useStateValue()
@@ -61,7 +61,7 @@ export default function Navbar({ path }) {
         className={classes.navBar}
         style={{
           backgroundColor:
-            y === 0 && path === "/"
+            y === 0 && (path === "/" || index)
               ? "transparent"
               : theme === "light"
               ? "#212124"

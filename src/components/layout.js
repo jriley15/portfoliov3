@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const Layout = ({ children, path }) => {
+const Layout = ({ children, path, index }) => {
   const classes = useStyles()
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const Layout = ({ children, path }) => {
 
   return (
     <>
-      <Navbar path={path} />
+      <Navbar path={path} index={index} />
       {children}
       <Footer />
     </>
