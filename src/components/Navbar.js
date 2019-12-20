@@ -11,6 +11,8 @@ import { Box } from "@material-ui/core"
 import { useStateValue } from "../state"
 import Moon from "@material-ui/icons/Brightness3"
 import Sun from "@material-ui/icons/Brightness7"
+import { useTheme } from "@material-ui/core/styles"
+import useMediaQuery from "@material-ui/core/useMediaQuery"
 
 const useStyles = makeStyles(theme => ({
   nav: {
@@ -45,6 +47,8 @@ export default function Navbar({ path, index }) {
   const classes = useStyles()
   const y = useScrollPosition()
   const [{ theme }, dispatch] = useStateValue()
+  const themeHook = useTheme()
+  const isMobile = useMediaQuery(themeHook.breakpoints.down("xs"))
 
   const handleThemeChange = () => {
     localStorage.setItem("theme", theme === "light" ? "dark" : "light")
@@ -61,7 +65,7 @@ export default function Navbar({ path, index }) {
         className={classes.navBar}
         style={{
           backgroundColor:
-            y === 0 && (path === "/" || index)
+            y === 0 && !isMobile && (path === "/" || index)
               ? "transparent"
               : theme === "light"
               ? "#212124"
@@ -79,7 +83,7 @@ export default function Navbar({ path, index }) {
           <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
             <Box display="flex" alignItems="center">
               <Typography variant="h6" className={classes.title}>
-                🎅 Jordan Riley
+                🎅 {!isMobile && "Jordan Riley"}
               </Typography>
             </Box>
           </Link>

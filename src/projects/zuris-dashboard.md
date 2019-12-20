@@ -23,4 +23,4 @@ images:
 description: "Volunteer engagement platform built for a non profit organization called Zuri's Circle. This project was part of Paypal's annual Opportunity Hack and took first place."
 ---
 
-##### Check out the full documentation on this project here: [https://devpost.com/software/zuri-s-dashboard](https://devpost.com/software/zuri-s-dashboard)
+Check out the full documentation on this project here: [https://devpost.com/software/zuri-s-dashboard](https://devpost.com/software/zuri-s-dashboard)

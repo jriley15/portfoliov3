@@ -9,6 +9,8 @@ import {
   Button,
   ButtonGroup,
   fade,
+  useTheme,
+  useMediaQuery,
 } from "@material-ui/core"
 import Heading1 from "../components/common/Heading1"
 import Paper from "@material-ui/core/Paper"
@@ -21,10 +23,21 @@ import VisibilitySensor from "react-visibility-sensor"
 
 const useStyles = makeStyles(theme => ({
   projectButton: {
-    padding: theme.spacing(2),
+    //padding: theme.spacing(2),
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2),
+    marginTop: theme.spacing(0.5),
+    marginBottom: theme.spacing(0.5),
+    width: "100%",
+    position: "relative",
+  },
+  hover: {
+    position: "absolute",
+    width: "calc(100% + 16px)",
+    height: "calc(100% + 16px)",
+    top: -8,
+    left: -8,
     borderRadius: 5,
-    margin: "0 -" + theme.spacing(2) + "px",
-
     "&:hover": {
       cursor: "pointer",
       textDecoration: "none",
@@ -40,8 +53,6 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: "transparent",
       },
     },
-    marginTop: theme.spacing(0.5),
-    marginBottom: theme.spacing(0.5),
   },
   previewImageAvatar: {
     //margin: 10,
@@ -53,16 +64,29 @@ const useStyles = makeStyles(theme => ({
     overflow: "hidden",
     borderRadius: "3px",
   },
+  previewImageAvatarMobile: {
+    //width: 200,
+    //height: 120,
+    height: 220,
+    maxWidth: "100vw",
+    display: "flex",
+    justifyContent: "center",
+    overflow: "hidden",
+    borderRadius: "3px",
+  },
   projectContainer: {
     borderColor:
       theme.palette.type === "light" ? "#f2f2f2" : "rgba(255, 255, 255, 0.12)",
     borderStyle: "solid",
     borderWidth: "0",
+    width: "100%",
   },
 }))
 
 const ProjectsSection = props => {
   const classes = useStyles()
+  const themeHook = useTheme()
+  const isMobile = useMediaQuery(themeHook.breakpoints.down("xs"))
 
   const data = useStaticQuery(graphql`
     {
@@ -94,7 +118,7 @@ const ProjectsSection = props => {
   return (
     <>
       {projects.map(({ node: { frontmatter: project } }, index) => (
-        <VisibilitySensor key={index}>
+        <VisibilitySensor key={index} partialVisibility>
           {({ isVisible }) => (
             <Spring delay={0} to={{ opacity: isVisible ? 1 : 0 }}>
               {({ opacity }) => (
@@ -116,12 +140,13 @@ const ProjectsSection = props => {
                       }}
                       className={classes.projectButton}
                     >
+                      <div className={classes.hover} />
                       <Box
                         display="flex"
                         justifyContent="space-between"
                         alignItems="center"
                       >
-                        <div>
+                        <div style={{ width: "100%" }}>
                           <Typography gutterBottom variant="h6">
                             {project.emoji} {project.title}
                           </Typography>
@@ -132,6 +157,18 @@ const ProjectsSection = props => {
                           >
                             {project.description}
                           </Typography>
+                          {isMobile && (
+                            <div
+                              style={{
+                                backgroundImage: `url("${project.images[0]}")`,
+                                backgroundSize: "contain",
+                                backgroundPosition: "center",
+                                backgroundRepeat: "no-repeat",
+                                height: "200px",
+                                width: "100%",
+                              }}
+                            />
+                          )}
                           <ButtonGroup style={{ marginTop: 8 }}>
                             <Button
                               variant="outlined"
@@ -154,13 +191,15 @@ const ProjectsSection = props => {
                             </Button>
                           </ButtonGroup>
                         </div>
-                        <div className={classes.previewImageAvatar}>
-                          <img
-                            src={project.images[0]}
-                            style={{ height: "100%" }}
-                            alt="preview"
-                          />
-                        </div>
+                        {!isMobile && (
+                          <div className={classes.previewImageAvatar}>
+                            <img
+                              src={project.images[0]}
+                              style={{ height: "100%" }}
+                              alt="preview"
+                            />
+                          </div>
+                        )}
                       </Box>
                     </div>
                   </Link>

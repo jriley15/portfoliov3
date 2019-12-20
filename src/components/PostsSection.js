@@ -9,6 +9,8 @@ import {
   Button,
   ButtonGroup,
   fade,
+  useTheme,
+  useMediaQuery,
 } from "@material-ui/core"
 import Heading1 from "../components/common/Heading1"
 import Paper from "@material-ui/core/Paper"
@@ -60,7 +62,8 @@ const useStyles = makeStyles(theme => ({
 
 const PostsSection = props => {
   const classes = useStyles()
-
+  const themeHook = useTheme()
+  const isMobile = useMediaQuery(themeHook.breakpoints.down("xs"))
   const data = useStaticQuery(graphql`
     {
       allMarkdownRemark(
@@ -88,7 +91,7 @@ const PostsSection = props => {
   return (
     <>
       {posts.map(({ node: { frontmatter: post } }, index) => (
-        <VisibilitySensor key={index}>
+        <VisibilitySensor key={index} partialVisibility>
           {({ isVisible }) => (
             <Spring delay={0} to={{ opacity: isVisible ? 1 : 0 }}>
               {({ opacity }) => (
@@ -122,7 +125,18 @@ const PostsSection = props => {
                           >
                             {post.description}
                           </Typography>
-
+                          {isMobile && (
+                            <div
+                              style={{
+                                backgroundImage: `url("${post.previewImage}")`,
+                                backgroundSize: "contain",
+                                backgroundPosition: "center",
+                                backgroundRepeat: "no-repeat",
+                                height: "200px",
+                                width: "100%",
+                              }}
+                            />
+                          )}
                           <Button
                             variant="outlined"
                             color="primary"
@@ -132,13 +146,15 @@ const PostsSection = props => {
                             Read More
                           </Button>
                         </div>
-                        <div className={classes.previewImageAvatar}>
-                          <img
-                            src={post.previewImage}
-                            style={{ height: "100%" }}
-                            alt="preview"
-                          />
-                        </div>
+                        {!isMobile && (
+                          <div className={classes.previewImageAvatar}>
+                            <img
+                              src={post.previewImage}
+                              style={{ height: "100%" }}
+                              alt="preview"
+                            />
+                          </div>
+                        )}
                       </Box>
                     </div>
                   </Link>

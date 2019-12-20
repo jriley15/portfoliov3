@@ -14,7 +14,7 @@ images:
     "https://images.jrdn.tech/fileshare-4.JPG",
     "https://images.jrdn.tech/fileshare-5.JPG",
   ]
-description: ""
+description: "Static file sharing web application that generates shortened download links"
 ---
 
 Demo Video: [https://www.loom.com/share/9589d4f665c74194b2c5ad88428740eb](https://www.loom.com/share/9589d4f665c74194b2c5ad88428740eb)

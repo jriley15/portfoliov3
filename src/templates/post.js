@@ -19,10 +19,11 @@ const useStyles = makeStyles(theme => ({
     minWidth: 300,
   },
   topContainer: {
-    paddingTop: theme.spacing(6),
+    paddingTop: theme.spacing(3),
     display: "block",
     [theme.breakpoints.up("sm")]: {
       display: "flex",
+      paddingTop: theme.spacing(6),
     },
   },
 
@@ -31,7 +32,10 @@ const useStyles = makeStyles(theme => ({
     wordBreak: "break-word",
   },
   flexContainer: {
-    paddingTop: theme.spacing(8),
+    paddingTop: theme.spacing(4),
+    [theme.breakpoints.up("sm")]: {
+      paddingTop: theme.spacing(8),
+    },
   },
   bodyContainer: {
     width: "100%",

@@ -12,9 +12,10 @@ const useStyles = makeStyles(theme => ({
     minWidth: 300,
   },
   topContainer: {
-    paddingTop: theme.spacing(6),
+    paddingTop: theme.spacing(3),
     display: "block",
     [theme.breakpoints.up("sm")]: {
+      paddingTop: theme.spacing(6),
       display: "flex",
     },
   },
@@ -23,12 +24,15 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(8),
   },
   flexContainer: {
-    paddingTop: theme.spacing(8),
+    paddingTop: theme.spacing(4),
+    [theme.breakpoints.up("sm")]: {
+      paddingTop: theme.spacing(8),
+    },
   },
   bodyContainer: {
+    width: "100%",
     maxWidth: 800,
     padding: theme.spacing(2),
-    width: "100%",
   },
 }))
 

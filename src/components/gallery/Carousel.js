@@ -39,6 +39,10 @@ const useStyles = makeStyles(theme => ({
   dot: {
     fontSize: 12,
   },
+  arrow: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+  },
 }))
 
 const Carousel = ({ images }) => {
@@ -122,7 +126,7 @@ const Carousel = ({ images }) => {
       alignItems="center"
       className={classes.root}
     >
-      <Grid container justify="center" alignItems="center">
+      <Grid container justify="center" alignItems="center" wrap="nowrap">
         <Grid item>
           <IconButton
             aria-label="Left"

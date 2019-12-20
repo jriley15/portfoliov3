@@ -33,7 +33,9 @@ The objective of this project was to create some type of HTTP forms based SaaS p
 - PostgreSQL
 - Netlify CI/CD
 - Amazon S3
-- Features
+
+#### Features
+
 - Form creation
 - Validation configuration
 - Dynamically generated code snippets

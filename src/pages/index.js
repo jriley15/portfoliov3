@@ -45,12 +45,13 @@ const useStyles = makeStyles(theme => ({
     animationIterationCount: "infinite",*/
   },
   topContainer: {
-    paddingTop: theme.spacing(19),
+    paddingTop: theme.spacing(9),
     display: "block",
     [theme.breakpoints.up("sm")]: {
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
+      paddingTop: theme.spacing(19),
     },
     //position: "relative",
     paddingBottom: theme.spacing(10),
