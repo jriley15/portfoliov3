@@ -1,18 +1,12 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Typography, Box, Avatar, Button } from "@material-ui/core"
-import Heading1 from "../components/common/Heading1"
-import Paper from "@material-ui/core/Paper"
+import { Typography, Box, Button } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
-import Heading2 from "../components/common/Heading2"
-import MailIcon from "@material-ui/icons/Mail"
-import PostsSection from "../components/PostsSection"
-import serializers from "../components/common/serializers"
 import Carousel from "../components/gallery/Carousel"
 import CustomMarkDown from "../components/common/CustomMarkDown"
-import { H4, H3 } from "../components/common/Headers"
+import { H3 } from "../components/common/Headers"
 
 const useStyles = makeStyles(theme => ({
   paper: {

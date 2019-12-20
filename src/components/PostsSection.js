@@ -1,19 +1,13 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
 import {
   Typography,
   Box,
-  Avatar,
   Button,
-  ButtonGroup,
   fade,
   useTheme,
   useMediaQuery,
 } from "@material-ui/core"
-import Heading1 from "../components/common/Heading1"
-import Paper from "@material-ui/core/Paper"
 import { makeStyles } from "@material-ui/core/styles"
 import { Spring } from "react-spring/renderprops"
 import VisibilitySensor from "react-visibility-sensor"

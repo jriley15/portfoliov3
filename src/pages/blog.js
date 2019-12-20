@@ -1,13 +1,9 @@
 import React from "react"
-import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Typography, Box, Avatar, Button } from "@material-ui/core"
-import Heading1 from "../components/common/Heading1"
-import Paper from "@material-ui/core/Paper"
+import { Box } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import Heading2 from "../components/common/Heading2"
-import MailIcon from "@material-ui/icons/Mail"
 import PostsSection from "../components/PostsSection"
 
 const useStyles = makeStyles(theme => ({

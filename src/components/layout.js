@@ -1,6 +1,5 @@
 import React, { useEffect } from "react"
 import { makeStyles } from "@material-ui/core/styles"
-import { Box } from "@material-ui/core"
 import Navbar from "./Navbar"
 import Footer from "./Footer"
 import ReactGA from "react-ga"
