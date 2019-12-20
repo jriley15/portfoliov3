@@ -40,6 +40,18 @@ const useStyles = makeStyles(theme => ({
     width: "100px",
     cursor: "pointer",
   },
+  mobileOnly: {
+    display: "block",
+    [theme.breakpoints.up("sm")]: {
+      display: "none",
+    },
+  },
+  desktopOnly: {
+    display: "block",
+    [theme.breakpoints.down("xs")]: {
+      display: "none",
+    },
+  },
 }))
 
 export default function Navbar({ path, index }) {
@@ -82,7 +94,8 @@ export default function Navbar({ path, index }) {
           <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
             <Box display="flex" alignItems="center">
               <Typography variant="h6" className={classes.title}>
-                🎅 {!isMobile && "Jordan Riley"}
+                <div className={classes.mobileOnly}>🎅</div>
+                <div className={classes.desktopOnly}>🎅 Jordan Riley</div>
               </Typography>
             </Box>
           </Link>
