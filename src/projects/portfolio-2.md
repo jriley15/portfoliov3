@@ -4,7 +4,7 @@ date: "2019-08-12"
 title: "Portfolio 2 (Current)"
 emoji: "🧑"
 github: "https://github.com/jriley15/portfoliov2"
-demo: "https://portfolio.jrdn.tech"
+demo: "https://portfolio2.jrdn.tech"
 images:
   [
     "https://images.jrdn.tech/p2.JPG",
