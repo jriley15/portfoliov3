@@ -25,10 +25,10 @@ const useStyles = makeStyles(theme => ({
   },
   hover: {
     position: "absolute",
-    width: "calc(100% + 16px)",
-    height: "calc(100% + 16px)",
-    top: -8,
-    left: -8,
+    width: "calc(100% + 32px)",
+    height: "calc(100% + 2px)",
+    top: -1,
+    left: -16,
     borderRadius: 5,
     "&:hover": {
       cursor: "pointer",
