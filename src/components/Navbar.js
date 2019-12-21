@@ -6,12 +6,13 @@ import Toolbar from "@material-ui/core/Toolbar"
 import Typography from "@material-ui/core/Typography"
 import Button from "@material-ui/core/Button"
 import { Link } from "gatsby"
-import { Box } from "@material-ui/core"
+import { Box, Switch } from "@material-ui/core"
 import { useStateValue } from "../state"
 import Moon from "@material-ui/icons/Brightness3"
 import Sun from "@material-ui/icons/Brightness7"
 import { useTheme } from "@material-ui/core/styles"
 import useMediaQuery from "@material-ui/core/useMediaQuery"
+import ThemeSwitch from "./common/ThemeSwitch"
 
 const useStyles = makeStyles(theme => ({
   nav: {
@@ -130,13 +131,20 @@ export default function Navbar({ path, index }) {
             Projects
           </Button>
 
-          <Button onClick={handleThemeChange} size="large">
+          {/*<Button onClick={handleThemeChange} size="large">
             {theme === "light" ? (
               <Moon style={{ color: "orange" }} />
             ) : (
               <Sun style={{ color: "yellow" }} />
             )}
-          </Button>
+            </Button>*/}
+
+          <ThemeSwitch
+            defaultChecked
+            size="large"
+            onChange={handleThemeChange}
+            checked={theme === "light"}
+          />
         </Toolbar>
       </AppBar>
     </div>
