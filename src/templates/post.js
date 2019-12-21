@@ -69,7 +69,12 @@ const Post = props => {
       >
         <div className={classes.bodyContainer}>
           <div className={classes.topContainer}>
-            <Box display="flex" justifyContent="center" flexDirection="column">
+            <Box
+              display="flex"
+              justifyContent="center"
+              flexDirection="column"
+              style={{ width: "100%" }}
+            >
               <H3>{post.title}</H3>
               <Typography variant="body2">
                 {new Date(post.date).toDateString()}

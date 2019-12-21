@@ -6,6 +6,7 @@ import BlockQuote from "./BlockQuote"
 import Paragraph from "./Paragraph"
 import ListItem from "./ListItem"
 import Image from "./Image"
+import Code from "./Code"
 
 const htmlAst = new RehypeReact({
   createElement: React.createElement,
@@ -19,9 +20,14 @@ const htmlAst = new RehypeReact({
     blockquote: BlockQuote,
     li: ListItem,
     img: Image,
+    code: Code,
   },
 }).Compiler
 
 export default function CustomMarkDown({ markdownRemark }) {
   return <div>{htmlAst(markdownRemark.htmlAst)}</div>
+}
+
+function Pre({ children }) {
+  return <div style={{ width: "100%" }}>{children}</div>
 }

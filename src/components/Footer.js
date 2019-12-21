@@ -22,13 +22,13 @@ export default function Footer() {
   return (
     <Box justifyContent="center" display="flex">
       <Box
-        justifyContent="space-between"
+        justifyContent="center"
         display="flex"
         className={classes.footerContainer}
       >
-        <div>
+        {/*<div>
           <Typography>Footer Left</Typography>
-        </div>
+        </div>*/}
         <div>
           <Typography>© 2019 Jordan Riley</Typography>
         </div>
