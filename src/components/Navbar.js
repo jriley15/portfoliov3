@@ -140,8 +140,7 @@ export default function Navbar({ path, index }) {
             </Button>*/}
 
           <ThemeSwitch
-            defaultChecked
-            size="large"
+            size="medium"
             onChange={handleThemeChange}
             checked={theme === "light"}
           />

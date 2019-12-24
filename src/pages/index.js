@@ -14,6 +14,7 @@ import VisibilitySensor from "react-visibility-sensor"
 import BuildIcon from "@material-ui/icons/Build"
 import ProjectsSection from "../components/ProjectsSection"
 import PostsSection from "../components/PostsSection"
+import { useStateValue } from "../state"
 
 const useStyles = makeStyles(theme => ({
   "@keyframes hover": {
@@ -21,6 +22,7 @@ const useStyles = makeStyles(theme => ({
     "50%": { top: theme.spacing(1) },
     "100%": { top: 0 },
   },
+
   paperContainer: {
     position: "relative",
     minWidth: 300,
@@ -91,7 +93,7 @@ const useStyles = makeStyles(theme => ({
   seperator: {
     top: "auto",
     width: "100%",
-    height: "60px",
+    height: "150px",
     zIndex: 1,
     WebkitTransform: "translateZ(0)",
     transform: "translateZ(0)",
@@ -116,10 +118,48 @@ const useStyles = makeStyles(theme => ({
   button: {
     marginLeft: theme.spacing(1),
   },
+
+  /* Waves */
+
+  parallax: {
+    animation: "$moveForever 25s cubic-bezier(.55,.5,.45,.5) infinite",
+  },
+
+  p1: {
+    animationDelay: "-2s",
+    animationDuration: "7s",
+  },
+  p2: {
+    animationDelay: "-3s",
+    animationDuration: "10s",
+  },
+  p3: {
+    animationDelay: "-4s",
+    animationDuration: "13s",
+  },
+  p4: {
+    animationDelay: "-5s",
+    animationDuration: "20s",
+  },
+
+  waves: {
+    position: "relative",
+    width: "100%",
+    height: "10vh",
+    marginBottom: "-7px" /*Fix for safari gap*/,
+    minHeight: "80px",
+    maxHeight: "120px",
+  },
+
+  "@keyframes moveForever": {
+    "0%": { transform: "translate3d(-90px,0,0)" },
+    "100%": { transform: "translate3d(85px,0,0)" },
+  },
 }))
 
 const IndexPage = props => {
   const classes = useStyles()
+  const [{ theme }, dispatch] = useStateValue()
 
   return (
     <Layout {...props} index={true}>
@@ -229,8 +269,65 @@ const IndexPage = props => {
             </div>
           </div>
         </Box>
-        <div className={classes.seperator}>
-          <svg
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 24 150 28"
+          preserveAspectRatio="none"
+          shapeRendering="auto"
+          className={classes.waves}
+        >
+          <defs>
+            <path
+              id="gentle-wave"
+              d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+            />
+          </defs>
+          <g>
+            <use
+              className={`${classes.p1} ${classes.parallax}`}
+              xlinkHref="#gentle-wave"
+              x="48"
+              y="0"
+              fill={
+                theme === "light"
+                  ? "rgba(250,250,250,0.7)"
+                  : "rgba(	48, 48, 48, 0.7)"
+              }
+            />
+            <use
+              className={`${classes.p2} ${classes.parallax}`}
+              xlinkHref="#gentle-wave"
+              x="48"
+              y="3"
+              fill={
+                theme === "light"
+                  ? "rgba(250,250,250,0.5)"
+                  : "rgba(	48, 48, 48, 0.5)"
+              }
+            />
+            <use
+              className={`${classes.p3} ${classes.parallax}`}
+              xlinkHref="#gentle-wave"
+              x="48"
+              y="5"
+              fill={
+                theme === "light"
+                  ? "rgba(250,250,250,0.3)"
+                  : "rgba(	48, 48, 48, 0.3)"
+              }
+            />
+            <use
+              className={`${classes.p4} ${classes.parallax}`}
+              xlinkHref="#gentle-wave"
+              x="48"
+              y="7"
+              fill={theme === "light" ? "#fafafa" : "#303030"}
+            />
+          </g>
+        </svg>
+
+        {/*<svg
             xmlns="http://www.w3.org/2000/svg"
             preserveAspectRatio="none"
             version="1.1"
@@ -243,8 +340,7 @@ const IndexPage = props => {
               className={classes.poly}
               points="2560 0 2560 100 0 100"
             ></polygon>
-          </svg>
-        </div>
+          </svg>*/}
       </div>
       <Box
         justifyContent="center"
