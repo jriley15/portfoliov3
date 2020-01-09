@@ -6,6 +6,7 @@ import { Typography, Box } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import CustomMarkDown from "../components/common/CustomMarkDown"
 import { H3 } from "../components/common/Headers"
+import Disqus from "disqus-react"
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -36,6 +37,10 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 800,
     padding: theme.spacing(2),
   },
+
+  disqus: {
+    marginTop: theme.spacing(8),
+  },
 }))
 
 export const query = graphql`
@@ -59,6 +64,13 @@ const Post = props => {
   const { frontmatter: post } = markdownRemark
   //const post = data && data.post
 
+  const disqusShortname = "jrdn"
+  const disqusConfig = {
+    identifier: "jrdn" + post.path,
+    title: post.title,
+  }
+  console.log(disqusConfig)
+
   return (
     <Layout {...props}>
       <SEO title={post.title} description={post.description} />
@@ -81,7 +93,16 @@ const Post = props => {
               </Typography>
 
               <div className={classes.contentContainer}>
-                <CustomMarkDown markdownRemark={markdownRemark} />
+                <CustomMarkDown
+                  markdownRemark={markdownRemark}
+                  className={classes.markDown}
+                />
+                <div className={classes.disqus}>
+                  <Disqus.DiscussionEmbed
+                    shortname={disqusShortname}
+                    config={disqusConfig}
+                  />
+                </div>
               </div>
             </Box>
           </div>
