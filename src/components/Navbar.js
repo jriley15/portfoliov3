@@ -95,8 +95,8 @@ export default function Navbar({ path, index }) {
           <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
             <Box display="flex" alignItems="center">
               <Typography variant="h6" className={classes.title}>
-                <div className={classes.mobileOnly}>💻</div>
-                <div className={classes.desktopOnly}>💻 Jordan Riley</div>
+                <div className={classes.mobileOnly}>👻</div>
+                <div className={classes.desktopOnly}>👻 Jordan Riley</div>
               </Typography>
             </Box>
           </Link>
