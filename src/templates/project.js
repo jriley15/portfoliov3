@@ -7,6 +7,7 @@ import { makeStyles } from "@material-ui/core/styles"
 import Carousel from "../components/gallery/Carousel"
 import CustomMarkDown from "../components/common/CustomMarkDown"
 import { H3 } from "../components/common/Headers"
+import { Thread } from "jthreads-react"
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -126,6 +127,7 @@ const Project = props => {
               </div>
             </Box>
           </div>
+          <Thread namespaceId={2} threadId="post-1" />
         </div>
       </Box>
     </Layout>
