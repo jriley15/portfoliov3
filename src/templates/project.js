@@ -127,7 +127,7 @@ const Project = props => {
               </div>
             </Box>
           </div>
-          <Thread namespaceId={2} threadId="post-1" />
+          {/*<Thread namespaceId={2} threadId="post-1" />*/}
         </div>
       </Box>
     </Layout>
