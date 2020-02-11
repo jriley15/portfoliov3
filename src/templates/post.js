@@ -98,11 +98,11 @@ const Post = props => {
                   className={classes.markDown}
                 />
                 <div className={classes.disqus}>
-                  {/*<Disqus.DiscussionEmbed
+                  <Disqus.DiscussionEmbed
                     shortname={disqusShortname}
                     config={disqusConfig}
-                  />*/}
-                  <Thread namespaceId={2} threadId="post-1" />
+                  />
+                  {/*<Thread namespaceId={2} threadId="post-1" />*/}
                 </div>
               </div>
             </Box>
