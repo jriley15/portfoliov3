@@ -7,6 +7,7 @@ import { makeStyles } from "@material-ui/core/styles"
 import CustomMarkDown from "../components/common/CustomMarkDown"
 import { H3 } from "../components/common/Headers"
 import Disqus from "disqus-react"
+import { Thread } from "jthreads-react"
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -69,7 +70,6 @@ const Post = props => {
     identifier: "jrdn" + post.path,
     title: post.title,
   }
-  console.log(disqusConfig)
 
   return (
     <Layout {...props}>
@@ -98,10 +98,11 @@ const Post = props => {
                   className={classes.markDown}
                 />
                 <div className={classes.disqus}>
-                  <Disqus.DiscussionEmbed
+                  {/*<Disqus.DiscussionEmbed
                     shortname={disqusShortname}
                     config={disqusConfig}
-                  />
+                  />*/}
+                  <Thread namespaceId={2} threadId="post-1" />
                 </div>
               </div>
             </Box>

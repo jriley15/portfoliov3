@@ -7,7 +7,6 @@ import { makeStyles } from "@material-ui/core/styles"
 import Carousel from "../components/gallery/Carousel"
 import CustomMarkDown from "../components/common/CustomMarkDown"
 import { H3 } from "../components/common/Headers"
-import { Thread } from "jthreads-react"
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -70,8 +69,6 @@ const Project = props => {
   const { markdownRemark } = props.data
   const { frontmatter: project } = markdownRemark
 
-  console.log("project:", project)
-
   return (
     <Layout {...props}>
       <SEO title={project.title} description={project.description} />
@@ -127,7 +124,6 @@ const Project = props => {
               </div>
             </Box>
           </div>
-          {/*<Thread namespaceId={2} threadId="post-1" />*/}
         </div>
       </Box>
     </Layout>
