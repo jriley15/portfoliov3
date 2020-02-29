@@ -131,14 +131,13 @@ const Project = props => {
               </div>
               <div className={classes.contentContainer}>
                 <CustomMarkDown markdownRemark={markdownRemark} />
-              </div>
-
-              <div className={classes.comments}>
-                <LoadableComponent
-                  namespaceId={5}
-                  threadId={project.path}
-                  backgroundColor={theme === "light" ? "fafafa" : "303030"}
-                />
+                <div className={classes.comments}>
+                  <LoadableComponent
+                    namespaceId={5}
+                    threadId={project.path}
+                    backgroundColor={theme === "light" ? "fafafa" : "303030"}
+                  />
+                </div>
               </div>
             </Box>
           </div>
