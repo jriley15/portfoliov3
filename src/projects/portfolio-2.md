@@ -1,7 +1,7 @@
 ---
 path: "/project/portfolio-2"
 date: "2019-08-12"
-title: "Portfolio 2 (Current)"
+title: "Portfolio 2"
 emoji: "🧑"
 github: "https://github.com/jriley15/portfoliov2"
 demo: "https://portfolio2.jrdn.tech"

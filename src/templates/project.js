@@ -2,11 +2,17 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Typography, Box, Button } from "@material-ui/core"
+import { Typography, Box, Button, CircularProgress } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import Carousel from "../components/gallery/Carousel"
 import CustomMarkDown from "../components/common/CustomMarkDown"
 import { H3 } from "../components/common/Headers"
+import Loadable from "react-loadable"
+
+const LoadableComponent = Loadable({
+  loader: () => import("../components/Comments"),
+  loading: CircularProgress,
+})
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -42,6 +48,9 @@ const useStyles = makeStyles(theme => ({
   btn: {
     marginLeft: theme.spacing(0.5),
     marginRight: theme.spacing(0.5),
+  },
+  comments: {
+    marginTop: theme.spacing(8),
   },
 }))
 
@@ -121,6 +130,14 @@ const Project = props => {
               </div>
               <div className={classes.contentContainer}>
                 <CustomMarkDown markdownRemark={markdownRemark} />
+              </div>
+
+              <div className={classes.comments}>
+                <LoadableComponent
+                  namespaceId={5}
+                  threadId={project.path}
+                  backgroundColor={theme === "light" ? "fafafa" : "303030"}
+                />
               </div>
             </Box>
           </div>
