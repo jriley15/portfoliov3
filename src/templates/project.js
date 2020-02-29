@@ -78,7 +78,7 @@ const Project = props => {
 
   const { markdownRemark } = props.data
   const { frontmatter: project } = markdownRemark
-  const [{ theme }, dispatch] = useStateValuetateValue()
+  const [{ theme }, dispatch] = useStateValue()
   return (
     <Layout {...props}>
       <SEO title={project.title} description={project.description} />
