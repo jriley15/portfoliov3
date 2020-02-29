@@ -8,6 +8,7 @@ import CustomMarkDown from "../components/common/CustomMarkDown"
 import { H3 } from "../components/common/Headers"
 import Disqus from "disqus-react"
 import { Thread } from "jthreads-react"
+import { useStateValue } from "../state"
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -70,6 +71,7 @@ const Post = props => {
     identifier: "jrdn" + post.path,
     title: post.title,
   }
+  const [{ theme }, dispatch] = useStateValue()
 
   return (
     <Layout {...props}>
@@ -98,11 +100,16 @@ const Post = props => {
                   className={classes.markDown}
                 />
                 <div className={classes.disqus}>
-                  <Disqus.DiscussionEmbed
+                  {/*<Disqus.DiscussionEmbed
                     shortname={disqusShortname}
                     config={disqusConfig}
+                  />*/}
+                  <Thread
+                    namespaceId={5}
+                    threadId={post.path}
+                    backgroundColor={theme === "light" ? "fafafa" : "303030"}
                   />
-                  {/*<Thread namespaceId={2} threadId="post-1" />*/}
+                  {/*<IFrame />*/}
                 </div>
               </div>
             </Box>
