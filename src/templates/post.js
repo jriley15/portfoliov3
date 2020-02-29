@@ -2,13 +2,18 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Typography, Box } from "@material-ui/core"
+import { Typography, Box, CircularProgress } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import CustomMarkDown from "../components/common/CustomMarkDown"
 import { H3 } from "../components/common/Headers"
 import Disqus from "disqus-react"
-import { Thread } from "jthreads-react"
 import { useStateValue } from "../state"
+import Loadable from "react-loadable"
+
+const LoadableComponent = Loadable({
+  loader: () => import("../components/Comments"),
+  loading: CircularProgress,
+})
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -104,7 +109,7 @@ const Post = props => {
                     shortname={disqusShortname}
                     config={disqusConfig}
                   />*/}
-                  <Thread
+                  <LoadableComponent
                     namespaceId={5}
                     threadId={post.path}
                     backgroundColor={theme === "light" ? "fafafa" : "303030"}
