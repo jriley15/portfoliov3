@@ -8,6 +8,7 @@ import Carousel from "../components/gallery/Carousel"
 import CustomMarkDown from "../components/common/CustomMarkDown"
 import { H3 } from "../components/common/Headers"
 import Loadable from "react-loadable"
+import { useStateValue } from "../state"
 
 const LoadableComponent = Loadable({
   loader: () => import("../components/Comments"),
@@ -77,7 +78,7 @@ const Project = props => {
 
   const { markdownRemark } = props.data
   const { frontmatter: project } = markdownRemark
-
+  const [{ theme }, dispatch] = useStateValuetateValue()
   return (
     <Layout {...props}>
       <SEO title={project.title} description={project.description} />
