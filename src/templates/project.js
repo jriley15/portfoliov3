@@ -74,11 +74,12 @@ export const query = graphql`
 `
 
 const Project = props => {
+  
   const classes = useStyles()
-
   const { markdownRemark } = props.data
   const { frontmatter: project } = markdownRemark
   const [{ theme }, dispatch] = useStateValue()
+
   return (
     <Layout {...props}>
       <SEO title={project.title} description={project.description} />
