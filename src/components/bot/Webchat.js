@@ -61,7 +61,7 @@ export default function Webchat() {
   useEffect(() => {
     const getDirectLine = async () => {
       const res = await fetch(
-        /*"http://localhost:3978/api/directline/"*/ "https://jordan-sulaw4x.azurewebsites.net/api/directline",
+        /*"http://localhost:3978/api/directline/"*/ "https://jordan-chat-bot-urgntht.azurewebsites.net/api/directline",
         {
           method: "GET",
         }
