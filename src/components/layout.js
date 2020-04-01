@@ -3,6 +3,13 @@ import { makeStyles } from "@material-ui/core/styles"
 import Navbar from "./Navbar"
 import Footer from "./Footer"
 import ReactGA from "react-ga"
+import Loadable from "react-loadable"
+import { CircularProgress } from "@material-ui/core"
+
+const LoadableComponent = Loadable({
+  loader: () => import("./bot/Webchat"),
+  loading: CircularProgress,
+})
 
 const useStyles = makeStyles(theme => ({
   nav: {
@@ -43,6 +50,8 @@ const Layout = ({ children, path, index }) => {
       <Navbar path={path} index={index} />
       {children}
       <Footer />
+
+      <LoadableComponent />
     </>
   )
 }
