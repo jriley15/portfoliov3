@@ -44,6 +44,9 @@ let darkTheme = createMuiTheme({
     button: {
       textTransform: "none",
     },
+    body1: {
+      lineHeight: 1.6,
+    },
   },
   palette: {
     type: "dark",
