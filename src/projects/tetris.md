@@ -17,7 +17,7 @@ description: "Tetris emulation built using React with hooks"
 
 ~~The goal of this project was to explore web sockets with express using node. I decided to re-make Tetris since it's an easy yet challenging game concept to implement. I used web sockets instead of a completelyclient side solution because my original plan was to make the game multi-player. After implementing all of thecore game logic, I decided to start working on something else instead of adding a multi-player mode.~~
 
-I re-did this project without a back-end and keeping it only client-side since I don't intent on ever implementing multi-player.
+(March 2020) I re-did this project without a back-end and kept it client-side only since I don't intend on implementing multi-player anytime soon.
 
 #### Technology stack
 
