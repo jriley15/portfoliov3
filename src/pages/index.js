@@ -187,7 +187,7 @@ const IndexPage = props => {
                   }}
                   gutterBottom
                 >
-                  A software engineer based out of Phoenix, Arizona. I enjoy
+                  A software engineer based out of Tempe, Arizona. I enjoy
                   writing open source software and learning new technologies.
                 </Typography>
                 <Button
