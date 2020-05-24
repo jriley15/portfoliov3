@@ -12,6 +12,7 @@ import Loadable from "react-loadable"
 
 const Thread = Loadable({
   loader: () => import("../components/Comments"),
+  loading: <></>,
 })
 
 const useStyles = makeStyles(theme => ({

@@ -12,6 +12,7 @@ import { useStateValue } from "../state"
 
 const Thread = Loadable({
   loader: () => import("../components/Comments"),
+  loading: <></>,
 })
 
 const useStyles = makeStyles(theme => ({
