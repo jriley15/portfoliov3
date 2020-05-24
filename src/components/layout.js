@@ -4,11 +4,11 @@ import Navbar from "./Navbar"
 import Footer from "./Footer"
 import ReactGA from "react-ga"
 import Loadable from "react-loadable"
-import { CircularProgress } from "@material-ui/core"
+import Loading from "./Loading"
 
 const LoadableComponent = Loadable({
   loader: () => import("./bot/Webchat"),
-  loading: CircularProgress,
+  loading: Loading,
 })
 
 const useStyles = makeStyles(theme => ({
