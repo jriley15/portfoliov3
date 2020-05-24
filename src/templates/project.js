@@ -9,11 +9,7 @@ import CustomMarkDown from "../components/common/CustomMarkDown"
 import { H3 } from "../components/common/Headers"
 import Loadable from "react-loadable"
 import { useStateValue } from "../state"
-
-const Thread = Loadable({
-  loader: () => import("../components/Comments"),
-  loading: CircularProgress,
-})
+import { Thread } from "jthreads-react"
 
 const useStyles = makeStyles(theme => ({
   paper: {

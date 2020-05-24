@@ -9,11 +9,7 @@ import { H3 } from "../components/common/Headers"
 import Disqus from "disqus-react"
 import { useStateValue } from "../state"
 import Loadable from "react-loadable"
-
-const Thread = Loadable({
-  loader: () => import("../components/Comments"),
-  loading: CircularProgress,
-})
+import { Thread } from "jthreads-react"
 
 const useStyles = makeStyles(theme => ({
   paper: {
