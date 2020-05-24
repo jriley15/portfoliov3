@@ -12,7 +12,7 @@ import { useStateValue } from "../state"
 
 const Thread = Loadable({
   loader: () => import("../components/Comments"),
-  loading: <></>,
+  loading: CircularProgress,
 })
 
 const useStyles = makeStyles(theme => ({
