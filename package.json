@@ -23,7 +23,7 @@
     "gatsby-transformer-remark": "^2.6.42",
     "gatsby-transformer-sharp": "^2.4.3",
     "globalize": "^1.4.2",
-    "jthreads-react": "^0.4.4",
+    "jthreads-react": "^0.4.5",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
