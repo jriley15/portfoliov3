@@ -9,6 +9,7 @@ import { H3 } from "../components/common/Headers"
 import Disqus from "disqus-react"
 import { useStateValue } from "../state"
 import Loadable from "react-loadable"
+import { Thread } from "jthreads-react"
 
 const LoadableComponent = Loadable({
   loader: () => import("../components/Comments"),
@@ -109,7 +110,12 @@ const Post = props => {
                     shortname={disqusShortname}
                     config={disqusConfig}
                   />*/}
-                  <LoadableComponent
+                  {/* <LoadableComponent
+                    namespaceId={5}
+                    threadId={post.path}
+                    backgroundColor={theme === "light" ? "fafafa" : "303030"}
+                  /> */}
+                  <Thread
                     namespaceId={5}
                     threadId={post.path}
                     backgroundColor={theme === "light" ? "fafafa" : "303030"}

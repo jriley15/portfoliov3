@@ -9,6 +9,7 @@ import CustomMarkDown from "../components/common/CustomMarkDown"
 import { H3 } from "../components/common/Headers"
 import Loadable from "react-loadable"
 import { useStateValue } from "../state"
+import { Thread } from "jthreads-react"
 
 const LoadableComponent = Loadable({
   loader: () => import("../components/Comments"),
@@ -74,7 +75,6 @@ export const query = graphql`
 `
 
 const Project = props => {
-  
   const classes = useStyles()
   const { markdownRemark } = props.data
   const { frontmatter: project } = markdownRemark
@@ -133,7 +133,7 @@ const Project = props => {
               <div className={classes.contentContainer}>
                 <CustomMarkDown markdownRemark={markdownRemark} />
                 <div className={classes.comments}>
-                  <LoadableComponent
+                  <Thread
                     namespaceId={5}
                     threadId={project.path}
                     backgroundColor={theme === "light" ? "fafafa" : "303030"}
