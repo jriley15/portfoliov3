@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react"
-import { makeStyles, useTheme } from "@material-ui/styles"
-import { Grid, Box, Fab } from "@material-ui/core"
-import LeftArrow from "@material-ui/icons/KeyboardArrowLeftOutlined"
-import RightArrow from "@material-ui/icons/KeyboardArrowRightOutlined"
-import Close from "@material-ui/icons/Close"
-import Modal from "@material-ui/core/Modal"
+import { Box, Fab } from "@material-ui/core"
 import Backdrop from "@material-ui/core/Backdrop"
 import Fade from "@material-ui/core/Fade"
+import Modal from "@material-ui/core/Modal"
+import Close from "@material-ui/icons/Close"
+import LeftArrow from "@material-ui/icons/KeyboardArrowLeftOutlined"
+import RightArrow from "@material-ui/icons/KeyboardArrowRightOutlined"
+import { makeStyles } from "@material-ui/styles"
+import React, { useEffect, useState } from "react"
 
 const useStyles = makeStyles(theme => ({
   root: {

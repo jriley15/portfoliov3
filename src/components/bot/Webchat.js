@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useMemo } from "react"
 import { makeStyles } from "@material-ui/styles"
-import { Button, Slide, Paper, Box } from "@material-ui/core"
+import { Button, Slide, Paper, Box, CircularProgress } from "@material-ui/core"
 import ReactWebChat, {
   createDirectLine,
   createStore,
@@ -40,23 +40,33 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const store = createStore({}, ({ dispatch }) => next => action => {
-  if (action.type === "DIRECT_LINE/CONNECT_FULFILLED") {
-    dispatch({
-      type: "WEB_CHAT/SEND_EVENT",
-      payload: {
-        name: "webchat/join",
-      },
-    })
-  }
-  return next(action)
-})
-
 export default function Webchat() {
   const classes = useStyles()
-
   const [directLine, setDirectline] = useState()
   const [showChat, setShowChat] = useState(false)
+  const [loading, setLoading] = useState(true)
+
+  const store = useMemo(
+    () =>
+      createStore({}, ({ dispatch }) => next => action => {
+        if (action.type === "DIRECT_LINE/CONNECT_FULFILLED") {
+          dispatch({
+            type: "WEB_CHAT/SEND_EVENT",
+            payload: {
+              name: "webchat/join",
+            },
+          })
+        }
+        if (
+          action.type === "DIRECT_LINE/INCOMING_ACTIVITY" &&
+          action.payload.activity.type === "message"
+        ) {
+          setLoading(false)
+        }
+        return next(action)
+      }),
+    []
+  )
 
   useEffect(() => {
     const getDirectLine = async () => {
@@ -102,6 +112,16 @@ export default function Webchat() {
         </Box>
       </Button>
       <div className={classes.chatContainer}>
+        {loading && (
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            style={{ height: "100%" }}
+          >
+            <CircularProgress />
+          </Box>
+        )}
         {directLine && <ReactWebChat directLine={directLine} store={store} />}
       </div>
     </Paper>

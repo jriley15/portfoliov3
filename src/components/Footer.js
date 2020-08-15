@@ -1,11 +1,6 @@
-import React from "react"
-import { Link } from "gatsby"
-import { Typography, Box, Avatar, Button } from "@material-ui/core"
-import Heading1 from "../components/common/Heading1"
-import Paper from "@material-ui/core/Paper"
+import { Box, Typography } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
-import Heading2 from "../components/common/Heading2"
-import MailIcon from "@material-ui/icons/Mail"
+import React from "react"
 
 const useStyles = makeStyles(theme => ({
   footerContainer: {

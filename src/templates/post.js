@@ -1,15 +1,13 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { Typography, Box } from "@material-ui/core"
+import { Box, Typography } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
+import { graphql } from "gatsby"
+import { Thread } from "jthreads-react"
+import React from "react"
 import CustomMarkDown from "../components/common/CustomMarkDown"
 import { H3 } from "../components/common/Headers"
-import Disqus from "disqus-react"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 import { useStateValue } from "../state"
-import Loadable from "react-loadable"
-import { Thread } from "jthreads-react"
 
 const useStyles = makeStyles(theme => ({
   paper: {

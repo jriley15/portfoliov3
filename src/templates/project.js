@@ -1,15 +1,14 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { Typography, Box, Button, CircularProgress } from "@material-ui/core"
+import { Box, Button, Typography } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
-import Carousel from "../components/gallery/Carousel"
+import { graphql } from "gatsby"
+import { Thread } from "jthreads-react"
+import React from "react"
 import CustomMarkDown from "../components/common/CustomMarkDown"
 import { H3 } from "../components/common/Headers"
-import Loadable from "react-loadable"
+import Carousel from "../components/gallery/Carousel"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 import { useStateValue } from "../state"
-import { Thread } from "jthreads-react"
 
 const useStyles = makeStyles(theme => ({
   paper: {
