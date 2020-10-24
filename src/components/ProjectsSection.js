@@ -52,7 +52,7 @@ const useStyles = makeStyles(theme => ({
     minWidth: 200,
     height: 120,
     display: "flex",
-    justifyContent: "flex-end",
+    justifyContent: "center",
     overflow: "hidden",
     borderRadius: "3px",
   },
@@ -139,8 +139,15 @@ const ProjectsSection = props => {
                         alignItems="center"
                       >
                         <div style={{ width: "100%" }}>
-                          <Typography gutterBottom variant="h6">
+                          <Typography variant="h6">
                             {project.emoji} {project.title}
+                          </Typography>
+                          <Typography
+                            gutterBottom
+                            variant="subtitle2"
+                            color="textSecondary"
+                          >
+                            {project.date}
                           </Typography>
                           <Typography
                             color="textSecondary"

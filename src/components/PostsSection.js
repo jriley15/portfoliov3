@@ -42,7 +42,7 @@ const useStyles = makeStyles(theme => ({
     minWidth: 200,
     height: 120,
     display: "flex",
-    justifyContent: "flex-end",
+    justifyContent: "center",
     overflow: "hidden",
     borderRadius: "3px",
   },
@@ -109,8 +109,13 @@ const PostsSection = props => {
                         alignItems="center"
                       >
                         <div>
-                          <Typography gutterBottom variant="h6">
-                            {post.title}
+                          <Typography variant="h6">{post.title}</Typography>
+                          <Typography
+                            gutterBottom
+                            variant="subtitle2"
+                            color="textSecondary"
+                          >
+                            {post.date}
                           </Typography>
                           <Typography
                             color="textSecondary"
