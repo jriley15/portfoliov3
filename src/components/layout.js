@@ -6,11 +6,6 @@ import ReactGA from "react-ga"
 import Loadable from "react-loadable"
 import Loading from "./Loading"
 
-const LoadableComponent = Loadable({
-  loader: () => import("./bot/Webchat"),
-  loading: Loading,
-})
-
 const useStyles = makeStyles(theme => ({
   nav: {
     flexGrow: 1,
@@ -50,8 +45,6 @@ const Layout = ({ children, path, index }) => {
       <Navbar path={path} index={index} />
       {children}
       <Footer />
-
-      <LoadableComponent />
     </>
   )
 }

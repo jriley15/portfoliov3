@@ -210,7 +210,7 @@ const IndexPage = props => {
                   >
                     <Avatar
                       alt="Me"
-                      src="https://images.jrdn.tech/me.jpg"
+                      src="https://media-exp2.licdn.com/dms/image/C4D03AQGR1xvIt1H4bw/profile-displayphoto-shrink_200_200/0/1631822444481?e=1660780800&v=beta&t=_Vur_N-2tjqXkKFntvUs9ad1UuORSGQHFeAu9-grFhU"
                       className={classes.bigAvatar}
                     />
                     <Typography
@@ -252,7 +252,7 @@ const IndexPage = props => {
                           target="_blank"
                         >
                           <img
-                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/YouTube_play_buttom_icon_%282013-2017%29.svg/768px-YouTube_play_buttom_icon_%282013-2017%29.svg.png"
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/2560px-YouTube_full-color_icon_%282017%29.svg.png"
                             className={classes.linkedInIcon}
                           />
                           YouTube

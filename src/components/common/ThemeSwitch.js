@@ -4,13 +4,13 @@ import { purple } from "@material-ui/core/colors"
 import Switch from "@material-ui/core/Switch"
 
 const ThemeSwitch = withStyles({
-  thumbChecked: {
+  thumbUnchecked: {
     backgroundImage: `url("https://dejpknyizje2n.cloudfront.net/marketplace/products/crescent-moon-icon-sticker-1544043862.2615688.png")`,
     backgroundSize: "13px",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
   },
-  thumbUnchecked: {
+  thumbChecked: {
     backgroundImage: `url("https://www.svgrepo.com/show/65427/sun.svg")`,
     backgroundSize: "15px",
     backgroundPosition: "center",
@@ -18,9 +18,9 @@ const ThemeSwitch = withStyles({
   },
 
   switchBase: {
-    color: "rgba(255,255,255,0.5)",
+    color: "#424242",
     "&$checked": {
-      color: "#424242",
+      color: "rgba(255,255,255,0.5)",
     },
     "&$checked + $track": {
       backgroundColor: "#fff", //purple[500],

@@ -72,7 +72,7 @@ const Project = props => {
   const classes = useStyles()
   const { markdownRemark } = props.data
   const { frontmatter: project } = markdownRemark
-  const [{ theme }, dispatch] = useStateValue()
+  const [{ theme }] = useStateValue()
 
   return (
     <Layout {...props}>

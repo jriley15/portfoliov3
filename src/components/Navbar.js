@@ -142,7 +142,7 @@ export default function Navbar({ path, index }) {
           <ThemeSwitch
             size="medium"
             onChange={handleThemeChange}
-            checked={theme === "light"}
+            checked={theme === "dark"}
           />
         </Toolbar>
       </AppBar>

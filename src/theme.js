@@ -1,7 +1,7 @@
-import React, { useEffect } from "react"
 import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles"
-import { useStateValue } from "./state"
 import { ThemeProvider } from "@material-ui/styles"
+import React, { useEffect } from "react"
+import { useStateValue } from "./state"
 
 // A custom theme for this app
 let lightTheme = createMuiTheme({
@@ -71,7 +71,7 @@ const CustomThemeProvider = ({ children }) => {
         type: "changeTheme",
         newTheme: theme,
       })
-  }, [])
+  }, [dispatch])
 
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
