@@ -45,7 +45,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:image`,
-          content: `https://media.licdn.com/dms/image/C4D03AQGR1xvIt1H4bw/profile-displayphoto-shrink_800_800/0/1631822444481?e=1688601600&v=beta&t=Fm35_VimJpgF8c670N3pv3VizoLPeCcxR7c_REE0mY0`,
+          content: `https://screenshot-proxy.netlify.app/f_avif,w_336/https://d33wubrfki0l68.cloudfront.net/62ad608ef46d4a0008e8a96f/screenshot_2022-06-18-05-23-25-0000.png`,
         },
         {
           property: `og:description`,
