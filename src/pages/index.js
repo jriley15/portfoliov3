@@ -210,7 +210,7 @@ const IndexPage = props => {
                   >
                     <Avatar
                       alt="Me"
-                      src="https://media-exp2.licdn.com/dms/image/C4D03AQGR1xvIt1H4bw/profile-displayphoto-shrink_200_200/0/1631822444481?e=1660780800&v=beta&t=_Vur_N-2tjqXkKFntvUs9ad1UuORSGQHFeAu9-grFhU"
+                      src="https://media.licdn.com/dms/image/C4D03AQGR1xvIt1H4bw/profile-displayphoto-shrink_800_800/0/1631822444481?e=1688601600&v=beta&t=Fm35_VimJpgF8c670N3pv3VizoLPeCcxR7c_REE0mY0"
                       className={classes.bigAvatar}
                     />
                     <Typography
