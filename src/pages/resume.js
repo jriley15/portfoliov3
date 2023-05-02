@@ -12,16 +12,15 @@ const useStyles = makeStyles(theme => ({
     minWidth: 300,
   },
   topContainer: {
-    paddingTop: theme.spacing(3),
     display: "block",
     [theme.breakpoints.up("sm")]: {
-      paddingTop: theme.spacing(6),
       display: "flex",
     },
   },
 
   contentContainer: {
     marginTop: theme.spacing(8),
+    height: "calc(100vh - 64px)",
   },
   flexContainer: {
     paddingTop: theme.spacing(4),
@@ -31,8 +30,6 @@ const useStyles = makeStyles(theme => ({
   },
   bodyContainer: {
     width: "100%",
-    maxWidth: 800,
-    padding: theme.spacing(2),
   },
 }))
 
