@@ -193,11 +193,25 @@ const IndexPage = props => {
                   component="a"
                   href="https://github.com/jriley15/"
                   target="_blank"
+                  style={{ marginRight: "1rem" }}
                 >
                   <img
                     src="https://images.jrdn.tech/github.svg"
                     className={classes.icon}
                     alt="github"
+                  />
+                </Button>
+                <Button
+                  size="large"
+                  variant="contained"
+                  component="a"
+                  href="https://www.youtube.com/channel/UCm1QwbkF44UTDhAHzqBYNWA"
+                  target="_blank"
+                >
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/2560px-YouTube_full-color_icon_%282017%29.svg.png"
+                    className={classes.icon}
+                    alt="youtube"
                   />
                 </Button>
               </div>
@@ -232,33 +246,19 @@ const IndexPage = props => {
                       </Typography>
                     </Box>
                     <div style={{ marginTop: 16 }}>
-                      <ButtonGroup aria-label="large contained secondary button group">
-                        <Button
-                          variant="contained"
-                          color="primary"
-                          component="a"
-                          href="https://www.linkedin.com/in/jordan-riley-090564158/"
-                          target="_blank"
-                        >
-                          <img
-                            src="https://www.pinclipart.com/picdir/big/100-1003028_svg-linkedin-icon-vector-clipart.png"
-                            className={classes.linkedInIcon}
-                          />
-                          LinkedIn
-                        </Button>
-                        <Button
-                          variant="contained"
-                          component="a"
-                          href="https://www.youtube.com/channel/UCm1QwbkF44UTDhAHzqBYNWA"
-                          target="_blank"
-                        >
-                          <img
-                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/2560px-YouTube_full-color_icon_%282017%29.svg.png"
-                            className={classes.linkedInIcon}
-                          />
-                          YouTube
-                        </Button>
-                      </ButtonGroup>
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        component="a"
+                        href="https://www.linkedin.com/in/jordan-riley-090564158/"
+                        target="_blank"
+                      >
+                        <img
+                          src="https://www.pinclipart.com/picdir/big/100-1003028_svg-linkedin-icon-vector-clipart.png"
+                          className={classes.linkedInIcon}
+                        />
+                        LinkedIn
+                      </Button>
                     </div>
                   </Box>
                 </Paper>
