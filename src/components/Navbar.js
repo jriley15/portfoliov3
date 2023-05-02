@@ -22,8 +22,10 @@ const useStyles = makeStyles(theme => ({
     //marginLeft: 10,
   },
   navButton: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
+    [theme.breakpoints.up("sm")]: {
+      marginLeft: theme.spacing(1),
+      marginRight: theme.spacing(1),
+    },
   },
   navBar: {
     transition: "background-color 0.5s ease, box-shadow 0.5s ease",
