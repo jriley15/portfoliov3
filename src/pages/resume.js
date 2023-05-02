@@ -1,10 +1,8 @@
+import { Box } from "@material-ui/core"
+import { makeStyles } from "@material-ui/core/styles"
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Box } from "@material-ui/core"
-import { makeStyles } from "@material-ui/core/styles"
-import Heading2 from "../components/common/Heading2"
-import PostsSection from "../components/PostsSection"
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -16,10 +14,6 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up("sm")]: {
       display: "flex",
     },
-  },
-
-  contentContainer: {
-    marginTop: theme.spacing(8),
     height: "calc(100vh - 64px)",
   },
   flexContainer: {
