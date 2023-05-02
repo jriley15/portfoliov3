@@ -130,15 +130,15 @@ export default function Navbar({ path, index }) {
           >
             Projects
           </Button>
-
-          {/*<Button onClick={handleThemeChange} size="large">
-            {theme === "light" ? (
-              <Moon style={{ color: "orange" }} />
-            ) : (
-              <Sun style={{ color: "yellow" }} />
-            )}
-            </Button>*/}
-
+          <Button
+            color="inherit"
+            className={classes.navButton}
+            size="large"
+            component={Link}
+            to="/resume"
+          >
+            Resume
+          </Button>
           <ThemeSwitch
             size="medium"
             onChange={handleThemeChange}
