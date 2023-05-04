@@ -40,7 +40,7 @@ const ResumePage = props => {
         <div className={classes.bodyContainer}>
           <div className={classes.topContainer}>
             <object
-              data="https://jthreadsstorage.blob.core.windows.net/portfolio/Jordan Riley Resume 2019.pdf"
+              data="https://jthreadsstorage.blob.core.windows.net/portfolio/Jordan Riley Resume 2023.pdf"
               type="application/pdf"
               width="100%"
               height="100%"
