@@ -25,7 +25,7 @@ export default function Footer() {
           <Typography>Footer Left</Typography>
         </div>*/}
         <div>
-          <Typography>© 2019 Jordan Riley</Typography>
+          <Typography>© 2023 Jordan Riley</Typography>
         </div>
       </Box>
     </Box>
