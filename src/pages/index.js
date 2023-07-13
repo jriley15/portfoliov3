@@ -12,7 +12,7 @@ import SEO from "../components/seo"
 import Shapes from "../components/Shapes"
 import { useStateValue } from "../state"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   "@keyframes hover": {
     "0%": { top: 0 },
     "50%": { top: theme.spacing(1) },
@@ -153,7 +153,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const IndexPage = props => {
+const IndexPage = (props) => {
   const classes = useStyles()
   const [{ theme }, dispatch] = useStateValue()
 
@@ -211,7 +211,7 @@ const IndexPage = props => {
                   >
                     <Avatar
                       alt="Me"
-                      src="https://media.licdn.com/dms/image/C4D03AQGR1xvIt1H4bw/profile-displayphoto-shrink_800_800/0/1631822444481?e=1688601600&v=beta&t=Fm35_VimJpgF8c670N3pv3VizoLPeCcxR7c_REE0mY0"
+                      src="https://media.licdn.com/dms/image/C4D03AQGR1xvIt1H4bw/profile-displayphoto-shrink_400_400/0/1631822444481?e=1694649600&v=beta&t=ENmsKvxj0xi4_3Cqc76nPWXyXbrQcaIWRA7X1e4mnWQ"
                       className={classes.bigAvatar}
                     />
                     <Typography
